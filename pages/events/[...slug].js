@@ -1,16 +1,40 @@
 import { useRouter } from "next/router";
-import { Fragment } from "react";
+import { Fragment, useState, useEffect } from "react";
+import useSWR from "swr";
 import EventList from "../../components/events/EventList";
 import ResultsTitle from "../../components/events/ResultsTitle";
 import Button from "../../components/ui/Button";
-import { getFilteredEvents } from "../../dummy-data";
+
 import ErrorAlert from "../../components/ui/ErrorAlert";
 
 const FilteredEvents = () => {
+  const [loadedEvents, setLoadedEvents] = useState();
   const router = useRouter();
 
   const filteredData = router.query.slug;
-  if (!filteredData) {
+
+  const fetcher = (url) => fetch(url).then((res) => res.json());
+  const { data, error } = useSWR(
+    "https://nextjs-course-b8ec9-default-rtdb.firebaseio.com/events.json",
+    fetcher
+  );
+
+  useEffect(() => {
+    if (data) {
+      const events = [];
+
+      for (const key in data) {
+        events.push({
+          id: key,
+          ...data[key],
+        });
+      }
+
+      setLoadedEvents(events);
+    }
+  }, [data]);
+
+  if (!loadedEvents) {
     return <p className="center">Loading...</p>;
   }
 
@@ -23,7 +47,8 @@ const FilteredEvents = () => {
     filteredYear > 2030 ||
     filteredYear < 2021 ||
     filteredMonth < 1 ||
-    filteredMonth > 12
+    filteredMonth > 12 ||
+    error
   ) {
     return (
       <Fragment>
@@ -37,9 +62,12 @@ const FilteredEvents = () => {
     );
   }
 
-  const filteredEvents = getFilteredEvents({
-    year: filteredYear,
-    month: filteredMonth,
+  const filteredEvents = loadedEvents.filter((event) => {
+    const eventDate = new Date(event.date);
+    return (
+      eventDate.getFullYear() === filteredYear &&
+      eventDate.getMonth() === filteredMonth - 1
+    );
   });
 
   if (!filteredEvents || filteredEvents.length === 0) {
