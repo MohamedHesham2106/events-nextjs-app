@@ -15,9 +15,10 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 Demo Application that handles filtering and showing events and events details!
 
 ## Built Using
-- NextJs 
+- NextJs(SSG,SWR) 
 - ReactJs
 - CSS Module
+- Firebase
 
 ## Screenshots
 ### Home
