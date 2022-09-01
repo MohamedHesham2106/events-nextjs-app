@@ -18,7 +18,7 @@ Demo Application that handles filtering and showing events and events details!
 - NextJs(SSG,SWR) 
 - ReactJs
 - CSS Module
-- Firebase
+- Firebase (Just for static event data)
 - MongoDB
 ## Note
 Before cloning it make sure you create realtime Database in Firebase with this form:
