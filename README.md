@@ -19,6 +19,7 @@ Demo Application that handles filtering and showing events and events details!
 - ReactJs
 - CSS Module
 - Firebase
+- MongoDB
 ## Note
 Before cloning it make sure you create realtime Database in Firebase with this form:
   ```bash
