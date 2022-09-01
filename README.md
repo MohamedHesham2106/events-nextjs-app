@@ -57,8 +57,10 @@ Before cloning it make sure you create realtime Database in Firebase with this f
  `ALSO`, Make sure to create in realtime database events.json
 ## Screenshots
 ### Home
-![image](https://user-images.githubusercontent.com/102517583/187242595-72ffc836-a664-4a61-a813-7a357ba405d2.png)
+![image](https://user-images.githubusercontent.com/102517583/187986045-b0ee380d-a5c4-4c2c-b679-44db119bcaf4.png)
 ## All Events
 ![image](https://user-images.githubusercontent.com/102517583/187242625-f69ff261-f4dd-4478-8621-729136f1e226.png)
 ## An Event
-![image](https://user-images.githubusercontent.com/102517583/187242692-9ee56fbd-0063-439f-933a-9d73f4859e85.png)
+![image](https://user-images.githubusercontent.com/102517583/187986121-ac6ea738-e973-40b3-9e11-5c79d2762060.png)
+![image](https://user-images.githubusercontent.com/102517583/187986174-b8a2045e-1b28-4fac-9a5a-d65aed9e191d.png)
+
